@@ -4,19 +4,7 @@ body {
   background-color: #000;
 }
 
-.container {
-
-}
-.scroll-container {
-
-}
-.scroll-element,
-.scroll-caption {
-  
-}
-
 .scroll-element {
-  
   height: 100%;
   font-size: 60px;
   font-family: "Kapakana", cursive;
@@ -59,8 +47,8 @@ body {
     transition: 0.4s all ease-in-out;
 }
 .menu_link:hover {
-    transform: scale(1.12);
-    border: 1px solid #fff;
+    transform: translateY(-4px);
+    color: #2fff00;
 }
 .header_text {
     font-family: "Kapakana", cursive;
@@ -73,10 +61,13 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 10px 0 10px;
+    margin: 0 auto;
+    justify-content: center;
 }
 /*Cards*/
-
+.cards_section {
+  margin-top: 100px;
+}
 .card_items {
     display: flex;
     flex-direction: row;
@@ -87,11 +78,45 @@ body {
     max-width: 500px;
     height: 322px;
     transition: 0.4s all ease-in-out;
-    background-color: #ffffff34;
+    background-color: #000000;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+.card_items-b {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-color: #000;
+  z-index: 1;
+  border-radius: 6px;
 }
 .card_items:hover {
     box-shadow: 0 0 15px 5px rgba(255, 255, 190, 0.75);
     transform: scale(1.02);
+}
+.card_items::before { 
+    content: '';
+    background: conic-gradient(transparent 270deg, white, transparent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    width: 100%;
+    animation: rotate 2s linear infinite;
+}
+/* Overlay */
+.card_items::after {
+    content: '';
+    background: inherit;
+    border-radius: inherit;
+    position: absolute;
+    inset: var(--offset);
+    height: calc(100% - 2 * var(--offset));
+    width: calc(100% - 2 * var(--offset));
 }
 .card_image {
     display: flex;
@@ -103,6 +128,7 @@ body {
     overflow: hidden;
     position: relative;
     margin: 10px;
+    z-index: 3;
 }
 .card_image img {
     width: 100%;
@@ -116,27 +142,32 @@ body {
     border-radius: 7px;
     margin-top: 3px;
     margin-right: 3px;
+    z-index: 3;
 }
 .card_pres {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 3;
 }
 .game_name {
     font-size: 24px;
     color: #0AE2FF;
     margin: 20px auto 15px auto;
+    z-index: 3;
 }
 .game_text {
     font-size: 20px;
     color: #fff;
     margin-top: 0;
     margin-bottom: 10px;
+    z-index: 3;
 }
 .system {
     font-size: 16px;
     color: #00FF15;
     margin-bottom: 5px;
+    z-index: 3;
 }
 .btn {
     font-size: 20px;
@@ -149,6 +180,7 @@ body {
     background: linear-gradient(0deg,rgba(0, 196, 0, 0.76) 0%, rgba(0, 82, 5, 1) 50%, rgba(0, 176, 12, 0.77) 100%);
     margin: 10px auto;
     transition: 0.5s all ease-in-out;
+    z-index: 3;
 }
 .btn:hover {
     background: linear-gradient(0deg,rgba(0, 107, 0, 0.76) 1%, rgba(0, 0, 0, 1) 51%, rgba(0, 97, 6, 0.77) 100%);
@@ -224,13 +256,13 @@ body {
 .icon {
     max-height: 96px;
     max-width: 96px;
-    transition: 0.5s all ease-in-out;
+    transition: 0.3s all ease-in-out;
 }
 .icon img {
     width: 100%;
 }
 .icon:hover {
-    transform: scale(1.14);
+    transform: translateY(-11px);
 }
 
 
@@ -324,4 +356,14 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+    }
 }
