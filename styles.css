@@ -121,8 +121,8 @@ body {
 .card_image {
     display: flex;
     align-self: center;
-    height: 280px;
-    min-width: 240px;
+    height: 250px;
+    min-width: 200px;
     border-radius: 10px;
     border: 1px solid #fff;
     overflow: hidden;
@@ -157,10 +157,11 @@ body {
     z-index: 3;
 }
 .game_text {
-    font-size: 20px;
+    font-size: 16px;
     color: #fff;
     margin-top: 0;
     margin-bottom: 10px;
+    margin-right: 5px;
     z-index: 3;
 }
 .system {
